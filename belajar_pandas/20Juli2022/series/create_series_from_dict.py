@@ -12,12 +12,6 @@ _dict   =   {
 
 _series =   pd.Series(_dict)
 
-# _indexOfSeries            =   ['name', 'name']
-# _seriesWithCustomIndex    =   pd.Series(_dict, index=_indexOfSeries)
-
-# print(_series)
-# print(_seriesWithCustomIndex)
-
 _dateOfBirth            =   _series['dateOfBirth']
 _dateOfBirth_object     =   datetime.strptime(_dateOfBirth, '%Y-%m-%d')
 
@@ -33,3 +27,7 @@ print(_series)
 _series['age']  =   f'{_ageInYear} year(s) old'
 
 print(_series)
+
+_indexOfSeries            =   ['name', 'age']
+_seriesWithCustomIndex    =   pd.Series(_dict, index=_indexOfSeries)
+print(_seriesWithCustomIndex)
