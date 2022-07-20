@@ -1,25 +1,29 @@
-import numpy as np
-from util import get_data
-from datetime import datetime
-from sortedcontainers import SortedList
-import operator
-import matplotlib as plt
+from mysql import connector
+from math import sqrt
 
-class KNN:
-    def __init__(self, k):
-        self.k  =   k
+_rumah      =   input('Nama Rumah\n')
+_latitude   =   float(input('Latitude\n'))
+_longitude  =   float(input('Longitude\n'))
 
-    def fit(self, x, y):
-        self.x  =   x
-        self.y  =   y
+_connection     =   connector.connect(database='belajar_ml', host='localhost', user='root', password='')
+_cursor         =   _connection.cursor()
 
-    def predict(self, x):
-        #y adalah matrix nol yang ordonya sebanyak elemen x
-        y   =   np.zeros(len(x))
+_cursor.execute('select * from rumah')
+_getListRumah   =   _cursor.fetchall()
 
-        for j, k in enumerate(x):
-            sl  =   SortedList()
+_cursor.close()
+_connection.close()
 
-            for l, m in enumerate(self.x):
-                _distance   =   
+if len(_getListRumah) >= 1:
+    _distanceFromRumah  =   {}
+    for _dataRow in _getListRumah:
+        _id, _namaRumah, _lat, _long, _lokasi   =   _dataRow
+        _distanceKuadrat   =   (_lat - _latitude) ** 2 + (_long - _longitude) ** 2
+        _distance   =   sqrt(_distanceKuadrat)
+
+        _distanceFromRumah[_namaRumah]  =   _distance
+
+    print(_distanceFromRumah)
+
+    
 
