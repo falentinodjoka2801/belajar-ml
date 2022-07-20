@@ -24,10 +24,10 @@ _ageInYear  =   floor(_ageInDays / 365)
 
 print(_series)
 
-_series['age']  =   f'{_ageInYear} year(s) old'
+# _series['age']  =   f'{_ageInYear} year(s) old'
 
-print(_series)
+# print(_series)
 
-_indexOfSeries            =   ['name', 'age']
-_seriesWithCustomIndex    =   pd.Series(_dict, index=_indexOfSeries)
-print(_seriesWithCustomIndex)
+# _indexOfSeries            =   ['name', 'age']
+# _seriesWithCustomIndex    =   pd.Series(_dict, index=_indexOfSeries)
+# print(_seriesWithCustomIndex)
