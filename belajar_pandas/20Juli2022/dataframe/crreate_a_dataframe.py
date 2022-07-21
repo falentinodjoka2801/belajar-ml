@@ -17,3 +17,11 @@ _listOfList =   [
 ]
 _dataFrame  =   DataFrame(_listOfList, columns=['Name', 'Age'])
 print(_dataFrame)
+
+_data   =   {
+    'name'  :   ['Falentino', 'Andrian', 'Heri'],
+    'age'   :   [22, 23, 30],
+    'city'  :   ['Kota Medan', 'Tiga Panah', 'Lubuk Pakam']
+}
+_dataFrame =   DataFrame(_data)
+print(_dataFrame)
